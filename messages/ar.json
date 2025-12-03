@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "craftsmen": "الحرفيون",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "profile": "الملف الشخصي",
+    "bookings": "حجوزاتي",
+    "logout": "تسجيل الخروج",
+    "dashboard": "لوحة التحكم"
+  },
+  "home": {
+    "hero": {
+      "title": "في خدمتك",
+      "subtitle": "منصة تربط الحرفيين المهرة بالعملاء",
+      "description": "احصل على خدمات سباكة، كهرباء، نجارة وغيرها من حرفيين موثوقين في منطقتك",
+      "findCraftsman": "ابحث عن حرفي",
+      "becomeCraftsman": "كن حرفياً"
+    },
+    "services": {
+      "title": "خدماتنا",
+      "plumber": "سباكة",
+      "electrician": "كهرباء",
+      "carpenter": "نجارة",
+      "painter": "دهان",
+      "mason": "بناء",
+      "gardener": "بستنة",
+      "cleaner": "تنظيف"
+    },
+    "howItWorks": {
+      "title": "كيف يعمل؟",
+      "step1": {
+        "title": "ابحث عن حرفي",
+        "description": "ابحث عن الحرفيين حسب الخدمة والموقع"
+      },
+      "step2": {
+        "title": "احجز موعداً",
+        "description": "اختر التاريخ والوقت المناسب لك"
+      },
+      "step3": {
+        "title": "ادفع بأمان",
+        "description": "ادفع عبر الإنترنت بشكل آمن"
+      },
+      "step4": {
+        "title": "احصل على الخدمة",
+        "description": "استمتع بخدمة احترافية عالية الجودة"
+      }
+    }
+  },
+  "craftsman": {
+    "profile": "الملف الشخصي",
+    "specialty": "التخصص",
+    "experience": "سنوات الخبرة",
+    "hourlyRate": "السعر بالساعة",
+    "rating": "التقييم",
+    "reviews": "التقييمات",
+    "availability": "الأوقات المتاحة",
+    "portfolio": "معرض الأعمال",
+    "certifications": "الشهادات",
+    "bookNow": "احجز الآن",
+    "verified": "موثق"
+  },
+  "booking": {
+    "title": "حجز موعد",
+    "service": "الخدمة",
+    "description": "الوصف",
+    "date": "التاريخ",
+    "time": "الوقت",
+    "duration": "المدة (ساعات)",
+    "location": "الموقع",
+    "address": "العنوان",
+    "city": "المدينة",
+    "price": "السعر",
+    "confirm": "تأكيد الحجز",
+    "status": {
+      "pending": "قيد الانتظار",
+      "confirmed": "مؤكد",
+      "inProgress": "جاري التنفيذ",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    }
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "name": "الاسم",
+    "phone": "رقم الهاتف",
+    "role": "نوع الحساب",
+    "customer": "عميل",
+    "craftsman": "حرفي",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟"
+  },
+  "common": {
+    "search": "بحث",
+    "filter": "تصفية",
+    "sort": "ترتيب",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "submit": "إرسال",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "success": "تم بنجاح"
+  }
+}

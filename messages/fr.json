@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "craftsmen": "Artisans",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "profile": "Profil",
+    "bookings": "Mes réservations",
+    "logout": "Déconnexion",
+    "dashboard": "Tableau de bord"
+  },
+  "home": {
+    "hero": {
+      "title": "À votre service",
+      "subtitle": "Plateforme connectant artisans qualifiés et clients",
+      "description": "Obtenez des services de plomberie, électricité, menuiserie et plus auprès d'artisans de confiance dans votre région",
+      "findCraftsman": "Trouver un artisan",
+      "becomeCraftsman": "Devenir artisan"
+    },
+    "services": {
+      "title": "Nos services",
+      "plumber": "Plomberie",
+      "electrician": "Électricité",
+      "carpenter": "Menuiserie",
+      "painter": "Peinture",
+      "mason": "Maçonnerie",
+      "gardener": "Jardinage",
+      "cleaner": "Nettoyage"
+    },
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "step1": {
+        "title": "Trouver un artisan",
+        "description": "Recherchez des artisans par service et localisation"
+      },
+      "step2": {
+        "title": "Réserver un rendez-vous",
+        "description": "Choisissez la date et l'heure qui vous conviennent"
+      },
+      "step3": {
+        "title": "Payer en toute sécurité",
+        "description": "Payez en ligne en toute sécurité"
+      },
+      "step4": {
+        "title": "Recevoir le service",
+        "description": "Profitez d'un service professionnel de qualité"
+      }
+    }
+  },
+  "craftsman": {
+    "profile": "Profil",
+    "specialty": "Spécialité",
+    "experience": "Années d'expérience",
+    "hourlyRate": "Tarif horaire",
+    "rating": "Note",
+    "reviews": "Avis",
+    "availability": "Disponibilité",
+    "portfolio": "Portfolio",
+    "certifications": "Certifications",
+    "bookNow": "Réserver maintenant",
+    "verified": "Vérifié"
+  },
+  "booking": {
+    "title": "Réserver un rendez-vous",
+    "service": "Service",
+    "description": "Description",
+    "date": "Date",
+    "time": "Heure",
+    "duration": "Durée (heures)",
+    "location": "Localisation",
+    "address": "Adresse",
+    "city": "Ville",
+    "price": "Prix",
+    "confirm": "Confirmer la réservation",
+    "status": {
+      "pending": "En attente",
+      "confirmed": "Confirmé",
+      "inProgress": "En cours",
+      "completed": "Terminé",
+      "cancelled": "Annulé"
+    }
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "name": "Nom",
+    "phone": "Téléphone",
+    "role": "Type de compte",
+    "customer": "Client",
+    "craftsman": "Artisan",
+    "forgotPassword": "Mot de passe oublié ?",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?"
+  },
+  "common": {
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "submit": "Soumettre",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès"
+  }
+}
