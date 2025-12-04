@@ -58,6 +58,14 @@ export const authConfig: NextAuthConfig = {
       }
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      // Allow callback URLs from the same origin
+      if (url.startsWith(baseUrl)) {
+        return url;
+      }
+      // Default redirect to home
+      return baseUrl;
+    },
   },
   pages: {
     signIn: '/auth/login',

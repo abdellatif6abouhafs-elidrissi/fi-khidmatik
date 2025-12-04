@@ -37,7 +37,21 @@ export default function LoginPage() {
         return;
       }
 
-      router.push(`/${locale}/profile`);
+      // Fetch the session to get user role
+      const response = await fetch('/api/auth/session');
+      const session = await response.json();
+
+      // Redirect based on user role
+      let redirectPath = `/${locale}`;
+      if (session?.user?.role === 'admin') {
+        redirectPath = `/${locale}/admin`;
+      } else if (session?.user?.role === 'craftsman') {
+        redirectPath = `/${locale}/craftsman/dashboard`;
+      } else if (session?.user?.role === 'customer') {
+        redirectPath = `/${locale}/customer/dashboard`;
+      }
+
+      router.push(redirectPath);
       router.refresh();
     } catch (error) {
       setError(locale === 'ar' ? 'حدث خطأ أثناء تسجيل الدخول' : 'Une erreur s\'est produite');

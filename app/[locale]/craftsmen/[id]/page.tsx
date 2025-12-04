@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -19,10 +19,11 @@ import {
 } from 'lucide-react';
 
 export default function CraftsmanDetailPage({
-  params: { locale, id },
+  params,
 }: {
-  params: { locale: string; id: string };
+  params: Promise<{ locale: string; id: string }>;
 }) {
+  const { locale, id } = use(params);
   const { data: session } = useSession();
   const t = useTranslations();
   const [craftsman, setCraftsman] = useState<any>(null);
