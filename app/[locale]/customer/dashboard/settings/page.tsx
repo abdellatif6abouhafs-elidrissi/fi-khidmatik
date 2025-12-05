@@ -86,7 +86,7 @@ export default async function SettingsPage({
                   ? 'اختر لغتك المفضلة'
                   : 'Choisissez votre langue préférée'}
               </p>
-              <select className="px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 font-medium">
+              <select className="px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 font-medium text-gray-900 bg-white">
                 <option value="ar">{locale === 'ar' ? 'العربية' : 'Arabe'}</option>
                 <option value="fr">{locale === 'ar' ? 'الفرنسية' : 'Français'}</option>
               </select>

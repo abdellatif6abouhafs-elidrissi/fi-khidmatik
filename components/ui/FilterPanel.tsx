@@ -113,7 +113,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
         {/* Minimum Rating */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-900 mb-2">
             {locale === 'ar' ? 'التقييم الأدنى' : 'Note minimale'}
           </label>
           <div className="flex gap-2">
@@ -143,7 +143,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
         {/* Price Range */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-900 mb-2">
             {locale === 'ar' ? 'نطاق السعر (DH/ساعة)' : 'Fourchette de prix (DH/h)'}
           </label>
           <div className="flex gap-2">
@@ -168,7 +168,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({
 
         {/* Minimum Experience */}
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-gray-900 mb-2">
             {locale === 'ar' ? 'الخبرة الأدنى (سنوات)' : 'Expérience minimale (années)'}
           </label>
           <input

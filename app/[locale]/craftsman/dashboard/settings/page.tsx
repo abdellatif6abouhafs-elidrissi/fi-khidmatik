@@ -46,11 +46,11 @@ export default async function SettingsPage({
               type="email"
             />
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-900 mb-2">
                 {locale === 'ar' ? 'نبذة تعريفية' : 'Bio'}
               </label>
               <textarea
-                className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 text-gray-900 bg-white placeholder:text-gray-400"
                 rows={4}
                 defaultValue={locale === 'ar'
                   ? 'كهربائي محترف مع 10 سنوات خبرة'

@@ -108,7 +108,7 @@ export default function CraftsmenPage() {
                   placeholder={locale === 'ar' ? 'ابحث بالاسم أو التخصص...' : 'Rechercher par nom ou spécialité...'}
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                 />
               </div>
               <button
@@ -131,7 +131,7 @@ export default function CraftsmenPage() {
                   <select
                     value={filters.specialty}
                     onChange={(e) => setFilters({ ...filters, specialty: e.target.value })}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   >
                     <option value="">{locale === 'ar' ? 'الكل' : 'Tous'}</option>
                     {specialties.map((s) => (
@@ -151,7 +151,7 @@ export default function CraftsmenPage() {
                     placeholder={locale === 'ar' ? 'المدينة' : 'Ville'}
                     value={filters.city}
                     onChange={(e) => setFilters({ ...filters, city: e.target.value })}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                   />
                 </div>
 
@@ -162,7 +162,7 @@ export default function CraftsmenPage() {
                   <select
                     value={filters.minRating}
                     onChange={(e) => setFilters({ ...filters, minRating: e.target.value })}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   >
                     <option value="">{locale === 'ar' ? 'الكل' : 'Tous'}</option>
                     <option value="4">4+ ⭐</option>
@@ -179,7 +179,7 @@ export default function CraftsmenPage() {
                     placeholder={locale === 'ar' ? 'السعر' : 'Prix'}
                     value={filters.maxRate}
                     onChange={(e) => setFilters({ ...filters, maxRate: e.target.value })}
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                   />
                 </div>
 

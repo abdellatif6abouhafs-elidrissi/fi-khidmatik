@@ -79,7 +79,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-semibold text-gray-700 mb-2">
+        <label className="block text-sm font-semibold text-gray-900 mb-2">
           {locale === 'ar' ? 'التقييم' : 'Note'}
           <span className="text-red-500 ml-1">*</span>
         </label>

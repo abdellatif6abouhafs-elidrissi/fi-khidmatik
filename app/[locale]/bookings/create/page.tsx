@@ -1,19 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams, useParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Calendar, Clock, MapPin, FileText } from 'lucide-react';
 
-export default function CreateBookingPage() {
+function CreateBookingForm() {
   const params = useParams();
   const locale = params.locale as string;
   const router = useRouter();
   const searchParams = useSearchParams();
   const { data: session } = useSession();
   const craftsmanId = searchParams.get('craftsmanId');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const [loading, setLoading] = useState(false);
   const [craftsman, setCraftsman] = useState<any>(null);
@@ -74,6 +79,10 @@ export default function CreateBookingPage() {
     }
   };
 
+  if (!mounted) {
+    return null;
+  }
+
   if (!session) {
     router.push(`/${locale}/auth/login`);
     return null;
@@ -107,7 +116,7 @@ export default function CreateBookingPage() {
                   required
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                   placeholder={locale === 'ar' ? 'مثال: إصلاح صنبور' : 'Ex: Réparation robinet'}
                 />
               </div>
@@ -119,7 +128,7 @@ export default function CreateBookingPage() {
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                   rows={4}
                   placeholder={locale === 'ar' ? 'صف المشكلة...' : 'Décrivez le problème...'}
                 />
@@ -136,7 +145,7 @@ export default function CreateBookingPage() {
                     required
                     value={formData.scheduledDate}
                     onChange={(e) => setFormData({ ...formData, scheduledDate: e.target.value })}
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                     min={new Date().toISOString().split('T')[0]}
                   />
                 </div>
@@ -151,7 +160,7 @@ export default function CreateBookingPage() {
                     required
                     value={formData.scheduledTime}
                     onChange={(e) => setFormData({ ...formData, scheduledTime: e.target.value })}
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                   />
                 </div>
               </div>
@@ -166,7 +175,7 @@ export default function CreateBookingPage() {
                   min="1"
                   value={formData.duration}
                   onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) })}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white"
                 />
               </div>
 
@@ -183,7 +192,7 @@ export default function CreateBookingPage() {
                     ...formData,
                     location: { ...formData.location, city: e.target.value }
                   })}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                 />
               </div>
 
@@ -199,7 +208,7 @@ export default function CreateBookingPage() {
                     ...formData,
                     location: { ...formData.location, address: e.target.value }
                   })}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                   placeholder={locale === 'ar' ? 'العنوان الكامل' : 'Adresse complète'}
                 />
               </div>
@@ -227,5 +236,13 @@ export default function CreateBookingPage() {
       </div>
       <Footer />
     </>
+  );
+}
+
+export default function CreateBookingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <CreateBookingForm />
+    </Suspense>
   );
 }

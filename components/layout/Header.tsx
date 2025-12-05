@@ -3,11 +3,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession, signOut } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import { Menu, X, User, Globe } from 'lucide-react';
+import { Menu, X, User, Globe, LogOut, LayoutDashboard } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { data: session } = useSession();
   const t = useTranslations('nav');
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
@@ -57,20 +59,44 @@ export default function Header() {
               <Globe className="w-5 h-5" />
             </button>
 
-            <Link
-              href={`/${locale}/auth/login`}
-              className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-800 font-semibold hover:text-blue-600 transition"
-            >
-              <User className="w-5 h-5" />
-              {t('login')}
-            </Link>
+            {session ? (
+              // Logged in - Show Dashboard and Logout
+              <>
+                <Link
+                  href={`/${locale}/${session.user.role === 'admin' ? 'admin' : session.user.role === 'craftsman' ? 'craftsman/dashboard' : 'customer/dashboard'}`}
+                  className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-800 font-semibold hover:text-blue-600 transition"
+                >
+                  <LayoutDashboard className="w-5 h-5" />
+                  {locale === 'ar' ? 'لوحة التحكم' : 'Tableau de bord'}
+                </Link>
 
-            <Link
-              href={`/${locale}/auth/register`}
-              className="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold shadow-md"
-            >
-              {t('register')}
-            </Link>
+                <button
+                  onClick={() => signOut({ callbackUrl: `/${locale}` })}
+                  className="hidden md:flex items-center gap-2 px-4 py-2 text-red-600 font-semibold hover:text-red-700 transition"
+                >
+                  <LogOut className="w-5 h-5" />
+                  {locale === 'ar' ? 'تسجيل الخروج' : 'Déconnexion'}
+                </button>
+              </>
+            ) : (
+              // Not logged in - Show Login and Register
+              <>
+                <Link
+                  href={`/${locale}/auth/login`}
+                  className="hidden md:flex items-center gap-2 px-4 py-2 text-gray-800 font-semibold hover:text-blue-600 transition"
+                >
+                  <User className="w-5 h-5" />
+                  {t('login')}
+                </Link>
+
+                <Link
+                  href={`/${locale}/auth/register`}
+                  className="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-bold shadow-md"
+                >
+                  {t('register')}
+                </Link>
+              </>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -95,20 +121,48 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href={`/${locale}/auth/login`}
-              className="block px-4 py-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('login')}
-            </Link>
-            <Link
-              href={`/${locale}/auth/register`}
-              className="block px-4 py-2 bg-blue-600 text-white rounded-lg text-center font-bold shadow-md"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {t('register')}
-            </Link>
+
+            {session ? (
+              // Logged in - Show Dashboard and Logout for mobile
+              <>
+                <Link
+                  href={`/${locale}/${session.user.role === 'admin' ? 'admin' : session.user.role === 'craftsman' ? 'craftsman/dashboard' : 'customer/dashboard'}`}
+                  className="flex items-center gap-2 px-4 py-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <LayoutDashboard className="w-5 h-5" />
+                  {locale === 'ar' ? 'لوحة التحكم' : 'Tableau de bord'}
+                </Link>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    signOut({ callbackUrl: `/${locale}` });
+                  }}
+                  className="flex items-center gap-2 w-full px-4 py-2 text-red-600 font-semibold hover:bg-red-50 rounded-lg"
+                >
+                  <LogOut className="w-5 h-5" />
+                  {locale === 'ar' ? 'تسجيل الخروج' : 'Déconnexion'}
+                </button>
+              </>
+            ) : (
+              // Not logged in - Show Login and Register for mobile
+              <>
+                <Link
+                  href={`/${locale}/auth/login`}
+                  className="block px-4 py-2 text-gray-800 font-semibold hover:bg-gray-100 rounded-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('login')}
+                </Link>
+                <Link
+                  href={`/${locale}/auth/register`}
+                  className="block px-4 py-2 bg-blue-600 text-white rounded-lg text-center font-bold shadow-md"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {t('register')}
+                </Link>
+              </>
+            )}
           </div>
         )}
       </nav>

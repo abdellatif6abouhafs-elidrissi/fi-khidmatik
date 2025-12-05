@@ -98,7 +98,7 @@ export default async function MessagesPage({
                         ? 'اكتب رسالة...'
                         : 'Tapez un message...'
                     }
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 font-medium"
+                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 font-medium text-gray-900 bg-white placeholder:text-gray-400"
                   />
                   <Button variant="primary">
                     <Send className="w-5 h-5" />
